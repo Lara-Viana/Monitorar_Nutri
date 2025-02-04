@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% include 'navbar.html' %}
+
+        <div class="container mt-5">
+            <h1 class="mb-4">Dietas</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Refeição</th>
+                        <th scope="col">Alimento</th>
+                        <th scope="col">Medida</th>
+                        <th scope="col">Unidade de Medida</th>
+                        <th scope="col">Refeições Livres</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in dieta %}
+                    <tr>
+                        <td>{{ i.paciente }}</td>
+                        <td>{{ i.refeicao }}</td>
+                        <td>{{ i.alimento }}</td>
+                        <td>{{ i.medida }}</td>
+                        <td>{{ i.unidade_medida }}</td>
+                        <td>{{ i.refeicoes_livres }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        
+        {% endblock %}

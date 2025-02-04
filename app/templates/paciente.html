@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% include 'navbar.html' %}
+
+        <div class="container mt-5">
+            <h1 class="mb-4">Paciente</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Data Nascimento</th>
+                        <th scope="col">Objetivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in paciente %}
+                    <tr>
+                        <td>{{ i.nome }}</td>
+                        <td>{{ i.peso }}</td>
+                        <td>{{ i.sexo }}</td>
+                        <td>{{ i.data_nasc }}</td>
+                        <td>{{ i.objetivo }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        
+        {% endblock %}
