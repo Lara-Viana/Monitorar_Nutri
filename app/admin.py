@@ -8,11 +8,13 @@ from .models import (
 @admin.register(CategoriaAlimento)
 class CategoriaAlimentoAdmin(admin.ModelAdmin):
     list_display = ('nome',)
+    search_fields = ('nome',)
 
 # RF02 - Gerenciar Unidade Medida
 @admin.register(UnidadeMedida)
 class UnidadeMedidaAdmin(admin.ModelAdmin):
     list_display = ('sigla',)
+    search_fields = ('sigla',)
 
 # RF03 - Gerenciar Pacientes
 class DietaInline(admin.TabularInline):  # Inline para Dieta
@@ -28,29 +30,35 @@ class TreinoInline(admin.TabularInline):  # Inline para Treino
 @admin.register(Paciente)
 class PacienteAdmin(admin.ModelAdmin):
     list_display = ('nome', 'peso', 'sexo', 'data_nasc', 'objetivo')
+    search_fields = ('nome',)
     inlines = [DietaInline, TreinoInline]  # Inlines para Dieta e Treino
 
 # RF04 - Gerenciar Alimento
 @admin.register(Alimento)
 class AlimentoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'categoria')
+    search_fields = ('nome',)
 
 # RF05 - Gerenciar Refeição
 @admin.register(Refeicao)
 class RefeicaoAdmin(admin.ModelAdmin):
     list_display = ('nome',)
+    search_fields = ('nome',)
 
 # RF06 - Gerenciar Atividades Físicas
 @admin.register(AtividadeFisica)
 class AtividadeFisicaAdmin(admin.ModelAdmin):
     list_display = ('nome',)
+    search_fields = ('nome',)
 
 # RF07 - Gerenciar Dietas
 @admin.register(Dieta)
 class DietaAdmin(admin.ModelAdmin):
     list_display = ('paciente', 'refeicao', 'alimento', 'medida', 'unidade_medida', 'refeicoes_livres')
+    search_fields = ('paciente',)
 
 # RF08 - Gerenciar Treinos
 @admin.register(Treino)
 class TreinoAdmin(admin.ModelAdmin):
     list_display = ('paciente', 'atividade_fisica', 'duracao')
+    search_fields = ('paciente',)
